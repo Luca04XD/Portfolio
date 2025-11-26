@@ -1,0 +1,113 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+
+    a {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.5s ease;
+
+        &:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+    }
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.25rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: var(--accent-hover);
+    }
+}
+
+.menu-btn {
+    display: none;
+    color: var(--text-primary);
+}
+
+.social-links-mobile {
+    display: flex;
+    gap: 5px;
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--nav-height));
+        background: var(--bg-primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+
+        &.active {
+            transform: translateX(0);
+        }
+
+        a {
+            font-size: 1.5rem;
+        }
+    }
+
+    .contact-btn {
+        display: none;
+    }
+
+    .social-links-mobile {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+}
